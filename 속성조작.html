@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .border{
+            border: 5px solid red;
+        }
+        .border2{
+            border: solid 5px blue;
+        }
+        .active{
+            color: red;
+        }
+        section{
+            padding: 10px;
+            background-color: #ccc;
+        }
+        .box1{
+            width: 300px;
+            background-color: gray;
+            font-size: 2em;    
+            overflow: hidden;
+        }
+        .bg-green{
+            background-color: greenyellow;
+            height: 300px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <img
+        class="img1 border" 
+        src="https://via.placeholder.com/350?text=hello" 
+        alt="hello">
+    <script>
+        //attr
+        var imgSrc = $('.img1').attr('src');
+        document.write('<br>imgSrc =', imgSrc)
+        //alt
+        var imgAlt = $('.img1').attr('alt');
+        document.write('<br>.alt =',imgAlt)
+        //이미지 변경 attr(속성명, 값)
+        $('.img1').attr('src','https://via.placeholder.com/250?text=changeed-img');
+        //removeAttr 속성제거
+        //$('.img1').removeAttr('class');
+        //addClass 클래스추가
+        $('.img1').addClass('border2')
+        //removeClass 클라스 삭제
+        $('.img1').removeClass('border')
+    </script>
+
+    <ul id="list">
+        <li>home</li>
+        <li>company</li>
+        <li>product</li>
+        <li>about</li>
+    </ul>
+
+    <script>
+        //eq 0 1 2 순서
+        $('#list li').eq(1).addClass('active');
+    </script>
+
+    <h2>연습</h2>
+    <section>
+        <img src="https://via.placeholder.com/300/f80?text=1" alt="1">
+        
+        <img src="https://via.placeholder.com/300/80f?text=2" alt="2">
+    </section>
+
+    <script>
+        function changeImg(){
+            var img1 = $('img').first().attr('src');
+            var img2 = $('img').last().attr('src');
+
+            $('section img').last().attr('src', img1)
+            
+            $('section img').first().attr('src', img2)
+    }
+    </script>
+
+    <button id="btn-1" onclick="changeImg();">이미지 바꾸기</button>
+
+
+
+
+    <h2>addClass,removeClass,toggleClass</h2>
+    <div class="box1">addClass,removeClass,toggleClass</div>
+    <button class="btn-add" onclick="bgon();">addClass</button>
+    <button class="btn-remove" onclick="bgoff();">removeClass</button>
+    <button class="btn0toggle" onclick="bgToggle()">toggleClass</button>
+
+    <script>
+        function bgToggle(){
+            $('.box1').toggleClass('bg-green');
+        }
+
+        function bgon(){
+            $('.box1').addClass('bg-green');
+        }
+
+        function bgoff(){
+            $('.box1').removeClass('bg-green');
+        }
+
+    </script>
+
+        이름: <input type="text" name="user" id="user" value="홍길동" oninput="mtFunc();">
+        <button id="btn">확인</button>
+
+        <script>
+            function mtFunc(){
+                var value = $('#user').val();
+                console.log(value);
+            }
+            // var user = $('#user').val();
+            // //alert(user);
+            // $('#user').val('자바스크립트');
+
+
+
+        </script>
+
+
+
+    
+</body>
+</html>
